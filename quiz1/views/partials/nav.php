@@ -7,31 +7,10 @@
                 </div>
                 <div class="hidden md:block">
                     <div class="ml-10 flex items-baseline space-x-4">
-                        <?php 
-                            $selected_style = "bg-gray-900 dark:bg-gray-950/50 text-white";
-                            $not_selected_style = "text-gray-300 hover:bg-white/5 hover:text-white";
-                            $current_route = "/";
-                            var_dump($_);
-                        ?>
                         <!-- Current: "bg-gray-900 dark:bg-gray-950/50 text-white", Default: "text-gray-300 hover:bg-white/5 hover:text-white" -->
-                        <a href="/" class="rounded-md px-3 py-2 text-sm font-medium <?php 
-                        if($current_route == "/"){
-                            return $selected_style;
-                        }
-                        return $not_selected_style;
-                        ?>">Home</a>
-                        <a href="/about" class="rounded-md px-3 py-2 text-sm font-medium <?php 
-                        if($current_route == "/about"){
-                            return $selected_style;
-                        }
-                        return $not_selected_style;
-                        ?>">About</a>
-                        <a href="/contact" class="rounded-md px-3 py-2 text-sm font-medium <?php 
-                        if($current_route == "/contact"){
-                            return $selected_style;
-                        }
-                        return $not_selected_style;
-                        ?>">Contact</a>
+                        <a href="/" class="rounded-md px-3 py-2 text-sm font-medium <?= uriIs("/") ?>">Home</a>
+                        <a href="/about" class="rounded-md px-3 py-2 text-sm font-medium <?= uriIs("/about") ?>">About</a>
+                        <a href="/contact" class="rounded-md px-3 py-2 text-sm font-medium <?= uriIs("/contact") ?>">Contact</a>
                     </div>
                 </div>
             </div>
