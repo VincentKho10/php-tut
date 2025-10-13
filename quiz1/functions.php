@@ -31,3 +31,10 @@ function abort($code=404){
     require "views/err/$code.php";
     die();
 }
+
+function initDemoDatabase(){
+    global $ENV;
+    $dbconf = $ENV['database_cfg'];
+    $dbcred = $ENV['db_cred'];
+    return new Database($dbconf, $dbcred['username'], $dbcred['password']);
+}

@@ -11,21 +11,13 @@ $business = [
 
 $uri = parse_url($_SERVER["REQUEST_URI"])["path"];
 $uri_get_query = parse_url($_SERVER["REQUEST_URI"])["query"] ?? "";
+$ENV = require('config.php');
 
+require "Database.php";
 require "functions.php";
-// require "router.php";
+
+$db = initDemoDatabase();
 // dd($uri_get_query);
 
-$dsn = "mysql:host=localhost;port=3306;dbname=demo;charset=utf8mb4";
-$pdo = new PDO($dsn, 'root', "G00gle.com");
 
-$statement = $pdo->prepare("select * from posts");
-
-$statement->execute();
-
-$posts = $statement->fetchAll(PDO::FETCH_ASSOC);
-
-foreach ($posts as $post){
-    echo "<li>". $post['title'] ."</li>";
-}
-dd($posts);
+require "router.php";
