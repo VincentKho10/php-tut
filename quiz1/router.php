@@ -1,13 +1,7 @@
 <?php
 
 $root_path = __DIR__;
-$routes = [
-    "/" => "controllers/home.controller.php",
-    "/about" => "controllers/about.controller.php",
-    "/note" => "controllers/note.controller.php",
-    "/notes" => "controllers/notes.controller.php",
-    "/contact" => "controllers/contact.controller.php"
-];
+$routes = require('routes.php');
 
 function routeToController($routes, $uri)
 {
@@ -18,4 +12,4 @@ function routeToController($routes, $uri)
     }
 }
 
-routeToController($routes,$uri);
+routeToController($routes, $uri);

@@ -2,6 +2,7 @@
 
 $selected_style = "bg-gray-900 dark:bg-gray-950/50 text-white";
 $not_selected_style = "text-gray-300 hover:bg-white/5 hover:text-white";
+$currentUid = 1;
 
 $business = [
     'name' => 'Laracast',
@@ -15,6 +16,7 @@ $ENV = require('config.php');
 
 require "Database.php";
 require "functions.php";
+require "Response.php";
 
 $db = initDemoDatabase();
 // dd($uri_get_query);

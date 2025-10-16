@@ -8,11 +8,14 @@ require "partials/head.php";
         <ul>
             <?php foreach ($notes as $note): ?>
                 <a href="/note?id=<?= $note['idnotes']; ?>">
-                    <li class="text-blue-300 hover:underline"><?= $note["body"] ?></li>
+                    <li class="text-blue-300 hover:underline"><?= htmlspecialchars($note["body"]) ?></li>
                 </a>
             <?php endforeach; ?>
 
         </ul>
+        <p class="mt-6">
+            <a href="/notes/create" class="text-blue-300 hover:underline">Create Note</a>
+        </p>
     </div>
 </main>
 <?php

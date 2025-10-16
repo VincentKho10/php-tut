@@ -38,3 +38,9 @@ function initDemoDatabase(){
     $dbcred = $ENV['db_cred'];
     return new Database($dbconf, $dbcred['username'], $dbcred['password']);
 }
+
+function authorize($condition, $status=Response::FORBIDDEN){
+    if($condition){
+        abort($status);
+    }
+}

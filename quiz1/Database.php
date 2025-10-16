@@ -2,6 +2,7 @@
 
 class Database{
     private $connection;
+    private PDOStatement $statement;
 
     public function __construct($options , $username="root", $password=""){
         $dsn = "mysql:".http_build_query($options, "", ";");
@@ -11,8 +12,24 @@ class Database{
     }
 
     public function query($query_string, $params=[]){
-        $statement = $this->connection->prepare($query_string);
-        $statement->execute($params);
-        return $statement;
+        $this->statement = $this->connection->prepare($query_string);
+        $this->statement->execute($params);
+        return $this;
+    }
+
+    public function findOrFail(){
+        $result = $this->statement->fetch();
+        if(! $result){
+            abort();
+        }
+        return $result;
+    }
+
+    public function findAllOrFail(){
+        $result = $this->statement->fetchAll();
+        if(! $result){
+            abort();
+        }
+        return $result;
     }
 }
