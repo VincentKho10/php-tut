@@ -1,11 +1,12 @@
 <?php
 
-global $root_path;
+
 global $db;
 global $currentUid;
 
-$banner_title = "Notes";
-
 $notes = $db->query("SELECT * FROM notes")->findAllOrFail();
 
-require $root_path . "/views/notes.view.php";
+view("notes/index.view.php", [
+    "banner_title" => "Notes",
+    "notes" => $notes,
+]);

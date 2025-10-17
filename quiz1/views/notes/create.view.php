@@ -1,6 +1,7 @@
 <?php
 
-require "partials/head.php";
+require basePath("/views/partials/head.php");
+// require "../partials/head.php";
 ?>
 <main>
     <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
@@ -17,7 +18,7 @@ require "partials/head.php";
                                     name="body"
                                     rows="3"
                                     placeholder="here's idea for a note"
-                                    class="block w-full rounded-md bg-white/5 px-3 py-1.5 text-base text-white outline-1 -outline-offset-1 outline-white/10 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500 sm:text-sm/6"><?=$_POST['body'] ?? '';?></textarea>
+                                    class="block w-full rounded-md bg-white/5 px-3 py-1.5 text-base text-white outline-1 -outline-offset-1 outline-white/10 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500 sm:text-sm/6"><?=$_POST["body"]??""?></textarea>
                                 <?php if (isset($errors['body'])): ?>
                                     <p class="text-red-300 mt-2 text-xs">
                                         <?= $errors['body']; ?>
@@ -36,4 +37,4 @@ require "partials/head.php";
     </div>
 </main>
 <?php
-require "partials/footer.php";
+require basePath("/views/partials/footer.php");

@@ -1,5 +1,9 @@
 <?php
 
+namespace Core;
+
+use PDO, PDOStatement;
+
 class Database{
     private $connection;
     private PDOStatement $statement;

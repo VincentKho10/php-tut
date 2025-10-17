@@ -1,4 +1,6 @@
 <?php
+use Core\Database;
+use Core\Response;
 
 function dd($value)
 {
@@ -28,7 +30,7 @@ function uriIs($path) {
 function abort($code=404){
     
     http_response_code($code);
-    require "views/err/$code.php";
+    require basePath("views/err/$code.php");
     die();
 }
 
@@ -43,4 +45,13 @@ function authorize($condition, $status=Response::FORBIDDEN){
     if($condition){
         abort($status);
     }
+}
+
+function basePath($path){
+    return BASE_PATH . $path;
+}
+
+function view($path, $attributes=[]){
+    extract($attributes);
+    require basePath("views/".$path);
 }
